@@ -35,6 +35,5 @@ app.get("/api", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  // console.log(`Server is listening on port ${PORT}`);
-  console.log(currentDate.toISOString().replace(/\.\d+/, ""));
+  console.log(`Server is listening on port ${PORT}`);
 });
