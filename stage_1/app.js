@@ -1,8 +1,11 @@
 const express = require("express");
+const dotenv = require("dotenv");
 
 const app = express();
 
-const PORT = process.env.PORT;
+dotenv.config({ path: "./.env" });
+
+const PORT = process.env.PORT || 5000;
 
 // current date
 const daysOfWeek = [
@@ -22,7 +25,7 @@ app.get("/api", (req, res) => {
   return res.status(200).json({
     slack_name: req.query.slack_name,
     current_day: currentDay,
-    utc_time: currentDate.toISOString(),
+    utc_time: currentDate.toISOString().split(".")[0] + "Z",
     track: req.query.track,
     github_file_url:
       "https://github.com/timmbach/hng_internship/blob/master/stage_1/app.js",
