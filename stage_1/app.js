@@ -19,13 +19,14 @@ const currentDay = daysOfWeek[currentDate.getDay()];
 
 app.get("/api", (req, res) => {
   console.log(req.query);
-  return res.json({
+  return res.status(200).json({
     slack_name: req.query.slack_name,
     current_day: currentDay,
     utc_time: currentDate.toISOString(),
     track: req.query.track,
-    github_file_url: "https://github.com/username/repo/blob/main/file_name.ext",
-    github_repo_url: "https://github.com/username/repo",
+    github_file_url:
+      "https://github.com/timmbach/hng_internship/blob/master/stage_1/app.js",
+    github_repo_url: "https://github.com/timmbach/hng_internship/",
     status_code: 200,
   });
 });
