@@ -25,7 +25,7 @@ app.get("/api", (req, res) => {
   return res.status(200).json({
     slack_name: req.query.slack_name,
     current_day: daysOfWeek[new Date().getDay()],
-    utc_time: new Date().toUTCString().replace(/\.\d+/, ""),
+    utc_time: new Date().toISOString().replace(/\.\d+/, ""),
     track: req.query.track,
     github_file_url:
       "https://github.com/timmbach/hng_internship/blob/master/stage_1/app.js",
