@@ -25,7 +25,7 @@ app.get("/api", (req, res) => {
   return res.status(200).json({
     slack_name: req.query.slack_name,
     current_day: currentDay,
-    utc_time: currentDate.toISOString().split(".")[0] + "Z",
+    utc_time: currentDate.toISOString().replace(/\.\d+/, ""),
     track: req.query.track,
     github_file_url:
       "https://github.com/timmbach/hng_internship/blob/master/stage_1/app.js",
@@ -35,5 +35,6 @@ app.get("/api", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  // console.log(`Server is listening on port ${PORT}`);
+  console.log(currentDate.toISOString().replace(/\.\d+/, ""));
 });
