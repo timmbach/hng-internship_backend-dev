@@ -1,6 +1,5 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const fs = require("node:fs");
 const mongoose = require("mongoose");
 const { Person } = require("./models/personModel");
 
